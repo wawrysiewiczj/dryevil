@@ -1,7 +1,196 @@
 
-h1{
-    font-size: 72px;
-    background: -webkit-linear-gradient(#eee, #333);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    outline: red dashed 1px;
+}
+
+html, body {
+    scroll-behavior: smooth !important;
+}
+
+body{
+    font-family: system-ui;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    background-color: #14213D;
+    background-image: linear-gradient(to right top, #14213d, #172749, #1b2e55, #1e3462, #223b6f);
+    background-size: auto;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    animation-name: circle-in-center;
+    animation-duration: 1s;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#logo{
+    font-size: 3rem;
+    letter-spacing: 15px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#FFFFFF, #E5E5E5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: logo_fade 2s ease-in;
 }
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: top 0.3s;
+}
+
+header nav ul {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+header nav li {
+    display: inline-block;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+.mobile-menu-line{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 6px;
+}
+
+header a {
+    text-decoration: none;
+    color: #E5E5E5;
+    transition: all 0.3s ease 0s;
+}
+
+header a:hover {
+    color: #FCA311;
+}
+
+section{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#section_1{
+    flex-direction: column;
+    text-align: center;
+}
+
+#section_1 h2{
+    color: white;
+    font-size: 3rem;
+    display: inline-block;
+    letter-spacing: 3px;
+
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    border-right: solid 3px white;
+
+    animation: 
+    typewrite 2s steps(20) 1s forwards,
+    blink 0.5s steps(1) infinite;
+}
+
+@keyframes  typewrite{
+    to {width: 32ch;}
+}
+
+@keyframes blink{
+    from { border-color: transparent;}
+    50% { border-color: white;}
+    to { border-color: transparent;}
+}
+
+footer {
+    font-size: 12px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 14px;
+    color: #E5E5E5;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+}
+
+footer a:hover {
+    border-bottom: 1px transparent;
+}
+
+
+
+
+
+
+@keyframes logo_fade{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+@keyframes circle-in-center {
+    from {
+      clip-path: circle(0%);
+    }
+    to {
+      clip-path: circle(125%);
+    }
+  }
+  
+  [transition-style="in:circle:center"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+  }
+
+
+
+  @media only screen and (max-width: 750px) {
+    .mobile-menu {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+    header nav{
+        flex-direction: column;
+    }
+    header nav ul{
+        width: 100%; 
+    }
+    header nav li{
+        width: 100%;
+        border-top: 1px solid white;
+        text-align: center;
+    }
+  }
